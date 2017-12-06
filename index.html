@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cronologia CIT</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	<script src="http://cwilso.github.io/AudioContext-MonkeyPatch/AudioContextMonkeyPatch.js"></script>
+</head>
+
+<body>
+	<div id="wrapper">
+	<div id="degradado"></div>
+	<div id="pixels"></div>
+
+	<div id="indicador"></div>
+	<div id="errorBox"><p><br><br><br><br>Para una mejor experiencia te recomendamos usar un micrófono. Conecta el micrófono, recarga la página y acepta la solicitud en el navegador.</p>
+	<div id="botonContinuar" onclick="c();"><div style="position:absolute; top:16px; left:11px;">Continuar    de    todos    modos</div></div>
+	</div>
+	<section id="introContainer">
+		<div class="introCont">
+			<h2 style="font-family:Helvetica; font-size:15px; color:##00c1e8;">Cronología del uso de las tecnologías con propósitos educativos en la UAO</h2>
+			<div class="sep" style="float:right;"></div>
+			<div id="modulo"></div>
+			<h1 id="inititle" >LAS TIC  <span class="bluecolor">EN MOVIMIENTO</span></h1>
+			<div class="sep"></div>
+		</div>
+		<div class="introCont" style="height:90px;">
+			<p>El actual <span class="bluecolor">“Centro de Innovación TIC” </span>ha tenido un devenir en el tiempo que da cuenta de los retos y compromisos que institucionalmente se han asumido con la educación de calidad mediada por TIC, para dar respuesta a los desafíos de la sociedad de la información y del conocimiento.</p>
+		</div>
+		<div class="introCont">
+			<div id="logosIniCont" style="width:57%; margin:0 auto; height:100px;">
+			<div id="logoCIT"></div>
+			<div id="logoUAO"></div>
+			<!-- <div id="logoCEV"></div> -->
+			</div>
+		</div>
+
+	</section>
+	<div id="startBar" onclick="goPanel()"><h1>SOPLA O HAZ CLICK PARA CONTINUAR CON LA HISTORIA</h1></div>
+	<section id="infoContainer">
+		<div class="infoBubble" id="yearText"><h1 id="yearTextH1" style="color:#026a8b; margin-left:10px;"></h1></div>
+		<img class="pictures" id="pic1" src="img/m.JPG" alt="Image1" width="300" height="300" >
+		<img class="pictures" id="pic2" src="img/n.jpg" alt="Image2" width="300" height="300">
+		<img class="pictures" id="pic3" src="bubbleImg.png" alt="Image2" width="300" height="300" >
+
+		<!--<div class="infoBubble" id="cursosText">
+			<div class="g">
+				<div class="icon" id="cursoIcon"></div>
+				<h1 class="iconText" id="cursoTextH1" style="margin-left:5px; font-size:36px"></h1>
+			</div>
+			<h2>Cursos virtuales apoyados en Moodle</h2>
+		</div>  -->
+		<div class="infoBubble" id="gruposText">
+			
+			<div class="g">
+				
+				<h1 class="iconText" id="grupoTextH1"></h1>
+				<div class="icon" id="grupoIcon"></div>
+			</div>
+			<h2 style="font-size:13px;"> Grupos<br> B-learning</h2>	
+		</div>
+		<div class="infoBubble" id="estudiantesText">
+			
+			<div class="g">
+				
+				<h1 class="iconText" id="estudianteTextH1"></h1>
+				<div class="icon" id="estudianteIcon"></div>
+				
+			</div>
+			<h2 style="font-size:13px;">Estudiantes <br>E-learning</h2>	
+
+		</div>
+		<img id="bubbleImg" src="bubbleImg.png" alt="bubble" width="100" height="20" style="display:none">	
+		<canvas id="canvas"></canvas>
+		<div id="textContainer">
+			<div style="margin:0 auto; width:63%;">
+				<h1 id="infoTitle"></h1>
+			</div>
+			<p id="infoText"></p>
+		</div>	
+		<img id="generadorBurbuja" src="img/generadorB.png" alt="generador"  style="position:absolute; -webkit-transform-origin:-50% -50%; z-index:20;">
+	</section>
+
+	<section id="panelContainer">
+		<div class="container" >
+			<img src="img/CITlogo.png"  style="width:230px; float:right; margin-right:8%; margin-top:35px;"/>
+		</div>
+		<div class="container" style="width:55%;">
+		<div class="separador"></div>
+		<div id="menuContainer">
+		<ul class="years" id="yearsSup">
+			<li  id="1995"   onclick="timeLineMove('blueBar','9%'); next(); nextItemByLi(2);">1995</li>
+			<li  id="2000" onclick="timeLineMove('blueBar','23%'); next(); nextItemByLi(6);">2000</li>
+			<li  id="2003" onclick="timeLineMove('blueBar','37%'); next(); nextItemByLi(8);">2003</li>
+			<li  id="2005" onclick="timeLineMove('blueBar','51%'); next(); nextItemByLi(11);">2005</li>
+			<li  id="2007" onclick="timeLineMove('blueBar','65%'); next(); nextItemByLi(13);">2007</li>
+			<li  id="2010" onclick="timeLineMove('blueBar','79%'); next(); nextItemByLi(16);">2010</li>
+			<li  id="2012" onclick="timeLineMove('blueBar','93%'); next(); nextItemByLi(20);">2012</li>
+		</ul>
+		<div id="timeLineContainer">
+			<div id="blueBar"></div>
+			<div id="timeLine">
+				<div  id="1" class="timeLinePoint" style="margin-left:0;"  onclick="timeLineMove('blueBar','2%'); next(); makeActive(1,1993);" ></div>
+				<div id="2" class="timeLinePoint" onclick="timeLineMove('blueBar','9%'); next(); makeActive(2,1995);"></div>
+				<div id="3" class="timeLinePoint" onclick="timeLineMove('blueBar','16%'); next(); makeActive(5,1998);"></div>
+				<div id="4" class="timeLinePoint" onclick="timeLineMove('blueBar','23%'); next(); makeActive(6,2000);"></div>
+				<div id="5" class="timeLinePoint" onclick="timeLineMove('blueBar','30%'); next(); makeActive(7,2001);"></div>
+				<div id="6" class="timeLinePoint" onclick="timeLineMove('blueBar','37%'); next(); makeActive(8,2003);"></div>
+				<div id="7" class="timeLinePoint" onclick="timeLineMove('blueBar','44%'); next(); makeActive(9,2004);"></div>
+				<div id="8" class="timeLinePoint" onclick="timeLineMove('blueBar','51%'); next(); makeActive(11,2005);"></div>
+				<div id="9" class="timeLinePoint" onclick="timeLineMove('blueBar','58%'); next(); makeActive(12,2006);"></div>
+				<div id="10" class="timeLinePoint" onclick="timeLineMove('blueBar','65%'); next(); makeActive(13,2007); "></div>
+				<div id="11" class="timeLinePoint" onclick="timeLineMove('blueBar','72%'); next(); makeActive(14,2008);"></div>
+				<div id="12" class="timeLinePoint" onclick="timeLineMove('blueBar','79%'); next(); makeActive(16,2010);"></div>
+				<div id="13" class="timeLinePoint" onclick="timeLineMove('blueBar','86%'); next(); makeActive(17,2011);"></div>
+				<div id="14" class="timeLinePoint" onclick="timeLineMove('blueBar','93%'); next(); makeActive(20,2012);"></div>
+				<div id="15" class="timeLinePoint" style="float:right; margin-left:0" onclick="timeLineMove('blueBar','100%'); next(); makeActive(22,2013);"></div>
+			</div>
+		</div>
+		<ul class="years" id="yearsInf">
+			<li  id="1993" class="active" onclick="timeLineMove('blueBar','2%'); next(); nextItemByLi(1);">1993</li>
+			<li  id="1998" onclick="timeLineMove('blueBar','16%'); next(); nextItemByLi(5);">1998</li>
+			<li  id="2001" onclick="timeLineMove('blueBar','30%'); next(); nextItemByLi(7);">2001</li>
+			<li  id="2004" onclick="timeLineMove('blueBar','44%'); next(); nextItemByLi(9);">2004</li>
+			<li  id="2006" onclick="timeLineMove('blueBar','58%'); next(); nextItemByLi(12);">2006</li>
+			<li  id="2008" onclick="timeLineMove('blueBar','72%'); next(); nextItemByLi(14);">2008</li>
+			<li  id="2011" onclick="timeLineMove('blueBar','86%'); next(); nextItemByLi(17);">2011</li>
+			<li  style="margin-right:0px" id="2013" onclick="timeLineMove('blueBar','100%'); next(); nextItemByLi(22);">2013</li>
+		</ul>
+		</div> <!-- menuContainer-->
+
+		<div class="separador"></div>
+		<footer>Centro de Innovación TIC - Vicerrectoría Académica Todos los derechos reservados
+		Universidad Autónoma  Cl. 25 # 115 - 85, Km 2 vía Cali - Jamundí </footer>
+		</div>
+		<div class="container">
+		<img src="img/uaoLogo.png" width="130px" style="width:200px; margin-left:15%; margin-top:20px;"/>
+		</div>
+	</section>
+
+<script type="text/javascript">
+
+
+	var numItem=0;
+	var canvas = document.getElementById('canvas');
+	var ctx = canvas.getContext('2d');
+	var bubbles = new Array();
+	var infoBubbles = new Array();
+	var numBubbles = 30;
+	var numInfoBubbles = 30;
+	var img=document.getElementById("bubbleImg");
+	var generadorBurbuja=document.getElementById("generadorBurbuja");
+	var posIniTotalX = -10;
+	var posIniTotalY = -80;
+	var angle=30;
+	var inc=0;
+	var contEstadoUno=0;
+	var avanzarActivo = true;
+	var containerWidth = ctx.canvas.width;
+	var containerHeight = ctx.canvas.height;
+	var unavez = false;
+	var year=1993;
+	var blueVarPer=0;
+	var yearText = document.getElementById('yearText');
+	var yearTextH1 = document.getElementById('yearTextH1');
+	var pic1 = document.getElementById('pic1');
+	var pic2 = document.getElementById('pic2');
+	var pic3 = document.getElementById('pic3');
+	//var cursosText = document.getElementById('cursosText');
+	var gruposText = document.getElementById('gruposText');
+	var estudiantesText = document.getElementById('estudiantesText');
+	//var cursoTextH1 = document.getElementById('cursoTextH1');
+	var grupoTextH1 = document.getElementById('grupoTextH1');
+	var estudianteTextH1 = document.getElementById('estudianteTextH1');
+	var pxSideInfo = window.innerWidth-240;
+	var yearContText=1990;
+	var cursoContLimit=0;
+	var grupoContLimit=120;
+	var estudiantesContLimit=50;
+	var cursoCont=0;
+	var grupoCont=0;
+	var estudiantesCont=0;
+	
+
+
+
+
+	function timeLineMove(obj,newWidth){
+		var elem = document.getElementById(obj);
+		elem.style.transition = "width 1s";
+		elem.style.width = newWidth;
+	}
+
+
+	function makeActive(myId,id){  // for timeLine points
+
+		var obj = document.getElementById(id);
+		removeBold();
+		obj.style.transition = "font-size 0.5s";	
+		id= "#"+id;
+	 	$(id).addClass('active');
+	 	numItem=myId;
+	 	updateData(numItem);
+	 	defineYear(numItem);
+	 	$('#textContainer').animate({opacity: "100"}, 2000);
+	 	
+		//setTimeOut
+		setTimeout(function(){
+			pic1.src = "itemImg/" + numItem + "i.png";
+			pic2.src = "itemImg/" + numItem + "c.png";
+			pic3.src = "itemImg/" + numItem + "d.png";
+			$(pic1).fadeIn();
+			$(pic2).fadeIn();
+			$(pic3).fadeIn();
+		},2000);
+		 
+	}// function
+
+	var make_button_active = function(){   // for timeLine years
+
+		removeBold();
+		this.style.transition = "font-size 0.5s";
+	    $(this).addClass('active');
+
+	}
+
+	function removeBold(){   // remove ctive
+		
+	     $("li").removeClass('active');
+	    
+	}
+
+	function c() {
+ 		
+		 $("#errorBox").fadeOut();
+		 $(document.getElementById("startBar")).fadeIn();
+		 $(document.getElementById("introContainer")).fadeIn();
+	}
+
+ function goPanel(){
+ 	numItem=1;
+ 	containerWidth = 900;
+	containerHeight = 400;
+ 	next();
+
+ 	setTimeout(function(){
+		pic1.src = "itemImg/" + numItem + "i.png";
+		pic2.src = "itemImg/" + numItem + "c.png";
+		pic3.src = "itemImg/" + numItem + "d.png";
+		$(pic1).fadeIn();
+		$(pic2).fadeIn();
+		$(pic3).fadeIn();
+	},2000);
+ 	
+ 	$('#textContainer').animate({opacity: "100"}, 2000);
+ 	defineYear(numItem);
+ 	updateData(numItem);
+
+ 	
+ }
+
+
+$(document).ready(
+
+  function()
+  {
+
+    $(".years li").click(make_button_active);
+   
+	setInterval(update,50);
+	setInterval(increaseYearValues,100);
+	setInterval(increaseEstadisticValues,10);
+	
+
+	window.requestAnimFrame = (function(callback) {
+        return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame ||
+        function(callback) {
+          window.setTimeout(callback, 1000 / 60);
+        };
+      })();
+
+	function init(){  
+
+		generadorBurbuja.style.top = posIniTotalY.toString() +"px";
+		generadorBurbuja.style.left = posIniTotalX.toString() +"px";
+		generadorBurbuja.style.top = posIniTotalY.toString() +"px";
+		ctx.webkitImageSmoothingEnabled = true;
+
+		for(var i=0; i<numBubbles ; i++){
+	    	bubbles[i] = new Bubble(Math.floor(Math.random()*200) + 8); //  parámetro bubblesize	
+	    }
+
+	    infoBubbles[0] = new InfoBubble(150, pxSideInfo-15,-10); //creo burbuja de año
+	    infoBubbles[1] = new InfoBubble(500,pxSideInfo/2-380,310-15); //creo burbuja de foto1
+	    infoBubbles[2] = new InfoBubble(500,pxSideInfo/2-90,310+10); //creo burbuja de foto2
+	    infoBubbles[3] = new InfoBubble(500,pxSideInfo/2 + 240,310-35); //creo burbuja de foto3
+	    infoBubbles[4] = new InfoBubble(122,pxSideInfo,160); //creo burbuja de estadistica1
+	    infoBubbles[5] = new InfoBubble(122,pxSideInfo/2+350,408); //creo burbuja de estadistica2
+	    infoBubbles[6] = new InfoBubble(122,pxSideInfo/2 -260,296); //creo burbuja de estadistica3
+
+	    // cursosText.style.width = (infoBubbles[4].size).toString() + "px";
+	  	// cursosText.style.height = (infoBubbles[4].size).toString() + "px";
+	    yearText.style.width = (infoBubbles[0].size).toString() + "px";
+	    yearText.style.height = (infoBubbles[0].size).toString() + "px";
+	    gruposText.style.width = (infoBubbles[5].size).toString() + "px";
+	    gruposText.style.height = (infoBubbles[5].size).toString() + "px";
+	    estudiantesText.style.width = (infoBubbles[6].size).toString() + "px";
+	    estudiantesText.style.height = (infoBubbles[6].size).toString() + "px";
+
+	    document.getElementById('panelContainer').style.top = (infoBubbles[2].pyIni + 320).toString() + "px";
+
+	}//cierra init
+	
+	function increaseYearValues(){
+
+		// para años
+		if(yearContText<year)			yearContText+=1;
+
+		if(yearContText>year)			yearContText-=1;
+
+	}
+
+		function increaseEstadisticValues(){
+
+		// para cursos
+
+		if(cursoCont<cursoContLimit) 	cursoCont+=1;
+		
+		if(cursoCont>cursoContLimit) 	cursoCont-=1;
+
+		// para grupos
+
+		if(grupoCont<grupoContLimit) 	grupoCont+=1;
+		
+		if(grupoCont>grupoContLimit) 	grupoCont-=1;
+
+		// para estudiantes
+
+		if(estudiantesCont<estudiantesContLimit) 	estudiantesCont+=1;
+		
+		if(estudiantesCont>estudiantesContLimit) 	estudiantesCont-=1;
+
+	}
+
+	
+	function draw(){
+		console.log(numItem);
+		ctx.clearRect(0,0, containerWidth,containerHeight);
+		ctx.canvas.width  = document.getElementById('infoContainer').offsetWidth;
+		ctx.canvas.height = document.getElementById('infoContainer').offsetHeight;
+		containerWidth = ctx.canvas.width;
+	 	containerHeight = ctx.canvas.height;
+	 	
+
+	 	if(numItem>=1){		
+	 		$(document.getElementById("introContainer")).fadeOut('fast');
+	 		$(document.getElementById("startBar")).fadeOut('fast');
+	 		$(document.getElementById("panelContainer")).fadeIn('slow');
+	 		$(document.getElementById("infoContainer")).fadeIn('slow');		
+ 		}
+
+ 	
+
+	   for(var i=0; i<bubbles.length ; i++){
+	    	bubbles[i].pintar(ctx);
+	    	bubbles[i].move();
+	    	bubbles[i].sine();
+	    	bubbles[i].limits();	    	
+	    }
+
+	    for(var i=0; i<infoBubbles.length ; i++){	    	
+	    	infoBubbles[i].move();
+	    	infoBubbles[i].sine();
+	    	infoBubbles[i].limits();
+	    }
+
+	    
+	   
+	    pic1.style.top =  (infoBubbles[1].y).toString() + "px";
+	 	pic1.style.left =  (infoBubbles[1].x).toString() + "px";
+	 	pic2.style.top =  (infoBubbles[2].y).toString() + "px";
+	 	pic2.style.left =  (infoBubbles[2].x).toString() + "px";
+	 	pic3.style.top =  (infoBubbles[3].y).toString() + "px";
+	 	pic3.style.left =  (infoBubbles[3].x).toString() + "px";
+
+
+	    yearText.style.top = (infoBubbles[0].y - 60).toString() + "px";
+	    yearText.style.left = (infoBubbles[0].x).toString() + "px";
+	   // cursosText.style.top = (infoBubbles[4].y).toString() + "px";
+	    //cursosText.style.left = (infoBubbles[4].x).toString() + "px";
+	    gruposText.style.top = (infoBubbles[5].y).toString() + "px";
+	    gruposText.style.left = (infoBubbles[5].x).toString() + "px";
+	    estudiantesText.style.top = (infoBubbles[6].y).toString() + "px";
+	    estudiantesText.style.left = (infoBubbles[6].x).toString() + "px";
+	    yearTextH1.innerHTML = yearContText;
+	    //cursoTextH1.innerHTML = cursoCont;
+	    grupoTextH1.innerHTML = grupoCont;
+	    estudianteTextH1.innerHTML = estudiantesCont;
+	    //console.log(numItem);
+
+	     if(contEstadoUno<bubbles.length/2){
+
+	     	for(var i=0; i<bubbles.length/2 ; i++){
+
+	    		if(bubbles[i].estado == 1)  contEstadoUno++;
+	    	
+	    	}
+	    }
+
+
+	    if(pico){   // realiza el cambio al soplar... es básicamente ... LA MAGIA!
+
+	    	next();
+	    	unavez=true;
+	    	pico=false;
+	    	contEstadoUno=0;
+	    }
+	    
+
+		if(contEstadoUno>=bubbles.length/2-8 && unavez){   // se hace una vez por cada sopl
+
+	    	nextItem();
+	    	timeLineMove('blueBar',blueVarPer+"%");
+	    	unavez=false;
+			    if(numItem>0){
+					pic1.src = "itemImg/" + numItem + "i.png";
+					pic2.src = "itemImg/" + numItem + "c.png";
+					pic3.src = "itemImg/" + numItem + "d.png";
+					$(pic1).fadeIn();
+					$(pic2).fadeIn();
+					$(pic3).fadeIn();
+				}
+	    	    	
+	    	// AQUI CARGO EL CONTENIDO!    	
+	    }
+
+	    	infoBubbles[0].updatepxIni(pxSideInfo);
+
+		if(numItem>10){
+		    infoBubbles[4].updatepxIni(pxSideInfo);
+		    infoBubbles[5].updatepxIni(pxSideInfo -60);
+		    infoBubbles[6].updatepxIni(pxSideInfo);
+		}
+
+	    if(numItem==1 ||  numItem==9 || numItem==19 ||  numItem==21){  //casos especiales para cuando hay dos imagenes
+		    infoBubbles[1].pxIni = pxSideInfo/2-210;
+		    infoBubbles[3].pxIni = pxSideInfo/2 + 120;
+	    }else{
+	    	infoBubbles[1].pxIni = pxSideInfo/2-380;
+	    	infoBubbles[2].pxIni = pxSideInfo/2-90;
+		    infoBubbles[3].pxIni = pxSideInfo/2 + 240;
+	    }
+
+		if(numItem==9 ||  numItem==10){
+		    $(grupoTextH1).fadeOut();
+		    $(estudianteTextH1).fadeOut();
+		    $(".icon").css("margin-left","36px"); 
+		}else{
+			$(grupoTextH1).fadeIn();
+		    $(estudianteTextH1).fadeIn(); 
+		    $(".icon").css("margin-left","0px"); 
+		}
+
+
+	    	if(numItem<9) {
+ 			//$(cursosText).fadeOut();
+ 			$(gruposText).fadeOut();
+ 			$(estudiantesText).fadeOut();
+ 		}else{
+ 			//$(cursosText).fadeIn();
+ 			$(gruposText).fadeIn();
+ 			$(estudiantesText).fadeIn();
+ 		}
+	   // vibeGenerator(generadorBurbuja);
+
+	   requestAnimFrame(function() {
+          draw();
+        });
+
+	}//cierra draw
+
+	vibeGenerator = function(obj){
+		angle += Math.cos( inc )/0.9;
+		inc += bufferdata/4;  // aumenta velocidad
+		obj.style.Transform = "rotateY(" + angle + "deg)";
+		obj.style.WebkitTransform = "rotateY(" + angle + "deg)";
+		obj.style.MozTransform = "rotateY(" + angle + "deg)"		
+	}
+
+	init();
+	draw();
+
+	function update(){
+		bubbles[Math.floor((Math.random()*bubbles.length))].changeVel();
+		bubbles[Math.floor((Math.random()*bubbles.length))].changeVel();
+		bubbles[Math.floor((Math.random()*bubbles.length))].changeVel();
+		bubbles[Math.floor((Math.random()*bubbles.length))].changeVel();
+		bubbles[Math.floor((Math.random()*bubbles.length))].changeVel();
+		bubbles[Math.floor((Math.random()*bubbles.length))].changeVel();
+	}
+
+
+
+		window.onresize=function(){
+		pxSideInfo = window.innerWidth-window.innerWidth/6;
+		ctx.canvas.width  = document.getElementById('infoContainer').offsetWidth;
+		ctx.canvas.height = document.getElementById('infoContainer').offsetHeight ;
+		containerWidth = ctx.canvas.width;
+	 	containerHeight = ctx.canvas.height;
+
+	}
+ 	})
+
+document.addEventListener('keydown', function(event) {
+    if(event.keyCode == 37) {
+    	next();
+        backItem();
+    }
+    else if(event.keyCode == 39) {
+    	next();
+       nextItem();
+       
+    }
+});
+	
+
+
+
+	function next() {
+		defineYear(numItem);
+		$(pic1).fadeOut();
+		$(pic2).fadeOut();
+		$(pic3).fadeOut();
+
+           	
+		for(var i=0; i<bubbles.length ; i++)
+	    {
+	    	bubbles[i].nextState();
+	    }
+	    for(var i=0; i<infoBubbles.length ; i++)
+	    {
+	    	infoBubbles[i].nextState();
+	    }
+
+	    $('#textContainer').animate({opacity: "0"}, 300);
+
+	    
+
+	}// cierra next
+
+	function nextItemByLi(i){
+		$('#textContainer').animate({opacity: "100"}, 2000);
+		numItem=i;
+		defineYear(numItem);
+		updateData(numItem);
+		setTimeout(function(){
+			pic1.src = "itemImg/" + numItem + "i.png";
+		pic2.src = "itemImg/" + numItem + "c.png";
+		pic3.src = "itemImg/" + numItem + "d.png";
+			$(pic1).fadeIn();
+			$(pic2).fadeIn();
+			$(pic3).fadeIn();
+		},2000);
+		
+	}
+
+	function nextItem(){
+		 
+		if(numItem<23){
+	    		numItem++;   //cambiar el 15 si se le van a agregar más items
+			}else{
+				numItem=1;  //make carousel
+			}
+			//defineYear(numItem);
+	    	makeActive(numItem,year);
+	    	updateData(numItem);
+	    	console.log(numItem + "Item");
+	    	timeLineMove('blueBar',blueVarPer+"%")
+	    	$('#textContainer').animate({opacity: "100"}, 2000);
+	}
+
+	function backItem(){
+		 
+		if(numItem>1){
+	    		numItem--;   //cambiar el 15 si se le van a agregar más items
+			}else{
+				numItem=23;  //make carousel
+			}
+
+			defineYear(numItem);
+	    	makeActive(numItem,year);
+	    	updateData(numItem);
+	    	timeLineMove('blueBar',blueVarPer+"%")
+	    	console.log(numItem + "Item");
+	    	$('#textContainer').animate({opacity: "100"}, 2000);
+	}
+
+	function updateData(nm){
+		var nmm=nm;
+		var infoText = document.getElementById('infoText');;
+		var infoTitle = document.getElementById('infoTitle');
+		switch(nmm){
+ 			case 1:  //1993
+ 			infoTitle.innerHTML = "LAS BASES";
+ 			infoText.innerHTML = "EL inicio del CIT se remonta a 1993, donde, alineado con el Plan de Desarrollo vía año 2000, la Universidad se plantea como metas, entre otras: poder adaptarse a los cambios del entorno global en materia de educación, ciencia y tecnología. ";
+ 			break;
+ 			case 2: //1995
+ 			infoTitle.innerHTML = "RED PARA LA FORMACIÓN DOCENTE";
+ 			infoText.innerHTML = "Se conforma la Red Universitaria Mutis, que congrega varias instituciones de educación superior, que en aquella época, tenía como fin, establecer metas conjuntas para el mejoramiento de la formación postgradual de sus docentes. ";
+ 			break;
+ 			case 3: //1995
+ 			infoTitle.innerHTML = "FORTALECIENDO LA DOCENCIA";
+ 			infoText.innerHTML = "Una acción concreta, fue la formación de profesores a nivel de Maestría con el Instituto Tecnológico de Estudios Superiores de Monterrey, reconocida a nivel latinoamericano por su propuesta formativa a nivel de posgrado en la modalidad virtual. ";
+ 			break;
+ 			case 4: //1995
+ 			infoTitle.innerHTML = "ABRIENDO CAMINO";
+ 			infoText.innerHTML = "Esta experiencia llevó a la Institución a la búsqueda de modelos educativos innovadores que utilizaban como mediador del proceso de enseñanza-aprendizaje, las tecnologías de la información y la comunicación.";
+ 			break;
+ 			case 5: //1998
+ 			infoTitle.innerHTML = "CONSTRUYENDO CAMINOS";
+ 			infoText.innerHTML = "Para fortalecer los aprendizajes en éste ámbito, se firma un convenio en 1998 con el ILCE (Instituto Latinoamericano de la Comunicación Educativa), que hizo posible la formación de 42 docentes de la institución como especialistas en Educación Virtual.";
+ 			break;
+ 			case 6: //2000
+ 			infoTitle.innerHTML = "PREPARANDO EL CAMBIO";
+ 			infoText.innerHTML = "Con este escenario, la Universidad, consciente de la importancia estratégica de las TIC, crea por Resolución 4276 de 2000 el Sistema de Educación Virtual (SEV). ";
+ 			break;
+ 			case 7: //2001
+ 			infoTitle.innerHTML = "PRIMERAS BASES CONCEPTUALES TIC";
+ 			infoText.innerHTML = "El proceso académico de la Especialización con el ILCE, generó el desarrollo y construcción de una serie de productos en 2001, con el apoyo del SEV, destacándose la formulación del modelo educativo para la modalidad virtual de la Institución.";
+ 			break;
+ 			case 8: //2003
+ 			infoTitle.innerHTML = "APLICANDO LO APRENDIDO";
+ 			infoText.innerHTML = "En el marco del convenio con el ILCE, se inicia la Maestría en Comunicación e Innovación Tecnológica, con la participación de 12 profesores de la UAO.  De igual manera, se inicia el proyecto de virtualización de la Especialización en Gestión Ambiental, con el ánimo de ampliar, sin restricciones de espacio y tiempo, la oferta académica de posgrado de la Universidad. Se realiza con apoyo del CNA el Encuentro Educación a distancia y Entornos Virtuales en la Educación Superior: Calidad, Acreditación, Experiencias y Retos con participación de más de 50 IES del país.";
+ 			break;
+ 			case 9: //2004
+ 			infoTitle.innerHTML = "B-LEARNING Y E-LEARNING";
+ 			infoText.innerHTML = "Se desarrollan dos estrategias para la incorporación de TIC en los programas de pregrado. La primera, el rediseño de cursos presenciales para ser ofertados en la modalidad virtual; y la segunda, la implementación de un espacio electrónico de apoyo a los cursos presenciales en la publicación e intercambio de recursos, fundamentalmente, bibliográficos. ";
+ 			break;
+ 			case 10: //2004
+ 			infoTitle.innerHTML = "AULAS VIRTUALES Y EXPERIENCIAS";
+ 			infoText.innerHTML = "Inicialmente, se utilizó, para cada estrategia,  un Sistema de Gestión Educativa (LMS, siglas en inglés) diferente: WebCT para los cursos virtuales y Moodle para cursos apoyados por TIC. Dichas estrategias implicaron procesos de capacitación en diseño instruccional, tutoría y manejo del LMS en el caso de la modalidad virtual; y en el manejo de Moodle para el apoyo de cursos. Se realiza con ATEI el evento: Primer Tele - Encuentro iberoamericano sobre Formación Docente Universitaria en TIC.";
+ 			break;
+ 			case 11: //2005
+ 			infoTitle.innerHTML = "LOS ENTORNOS ELECTRÓNICOS EN ESCENA Y LA CALIDAD";
+ 			infoText.innerHTML = "Se imparten los dos primeros cursos virtuales para pregrado con participación de 67 estudiantes y se apoyan, a través de Moodle, 139 grupos. También en este año, se trazan los lineamientos que configuran los procesos y procedimientos de la Unidad, bajo el modelo de gestión de la calidad ISO9001.";
+ 			cursoContLimit=2;
+ 			grupoContLimit=139;
+ 			estudiantesContLimit=67;
+ 			break;
+ 			case 12: //2006
+ 			infoTitle.innerHTML = "NUEVAS ALIANZAS";
+ 			infoText.innerHTML = "Se constituye la Alianza e-learning Colombia 2.0, integrada por las instituciones de educación superior: UNAB, CEIPA, Escuela Colombiana de Ingeniería, Tecnológica de Pereira,  Tecnológica de Bolívar y la Universidad Autónoma de Occidente; cuyo propósito era fortalecer, de manera conjunta con el Ministerio de Educación Nacional, los procesos educativos en la modalidad virtual. A partir de esta experiencia, el estado colombiano empieza a reconocer formalmente dichos procesos. ";
+ 			cursoContLimit=7;
+ 			grupoContLimit=357;
+ 			estudiantesContLimit=516;
+ 			break;
+ 			case 13: //2007
+ 			infoTitle.innerHTML = "PROYECCIÓN NACIONAL";
+ 			infoText.innerHTML = "Con la Alianza, se desarrolla para el Ministerio de Educación Nacional una propuesta metodológica para transformar programas presenciales a virtuales o e-learning. Igualmente, en el panorama regional, se desarrolla un proyecto de capacitación docente en TIC, para la IES de COMFACAUCA en Popayán.";
+ 			cursoContLimit=7;
+ 			grupoContLimit=395;
+ 			estudiantesContLimit=903;
+ 			break;
+ 			case 14: //2008
+ 			infoTitle.innerHTML = "POSICIONAMIENTO NACIONAL";
+ 			infoText.innerHTML = "Con la Alianza, se construye el Diplomado para Tutores en Ambientes Virtuales de Aprendizaje, coordinado por la Universidad en el Suroccidente colombiano. 10 de nuestros docentes integraron el equipo de tutores nacionales que orientó la formación de 1600 participantes. Así mismo, se forma a 90 pares académicos para programas técnicos y tecnológicos y a 600 docentes en el manejo pedagógico de las TIC, con certificación internacional con el ICDL.";
+ 			cursoContLimit=7;
+ 			grupoContLimit=493;
+ 			estudiantesContLimit=687;
+ 			break;
+ 			case 15: //2008
+ 			infoTitle.innerHTML = "NUEVAS CONSTRUCCIONES";
+ 			infoText.innerHTML = "A nivel interno, se desarrolla el Diplomado para Diseñadores en Ambientes Virtuales de Aprendizaje y empieza la virtualización de cuatro especializaciones: Economía de Empresa, Mercadeo, Finanzas y Humanidades Contemporáneas.";
+
+ 			break;
+ 			case 16: //2010
+ 			infoTitle.innerHTML = "PRIMERA COSECHA";
+ 			infoText.innerHTML = "Inicia la primera cohorte de la Especialización en Gestión Ambiental modalidad virtual. Se imparten 6 cursos virtuales para pregrado con 578 estudiantes y la oferta de grupos de apoyo crece a 720.";
+ 			cursoContLimit=6;
+ 			grupoContLimit=720;
+ 			estudiantesContLimit=578;
+ 			break;
+ 			case 17: //2011
+ 			infoTitle.innerHTML = "LA APUESTA INSTITUCIONAL";
+ 			infoText.innerHTML = "Se definen lineamientos fundamentales en los horizontes de desarrollo institucional.  Se socializa el Proyecto Educativo Institucional (PEI) y el Plan Estratégico al 2015. En este último, una de sus estrategias, apunta al fortalecimiento de los procesos institucionales con el uso intensivo de las TIC, con dos acciones: la consolidación de la oferta de programas y cursos en modalidad virtual para los diferentes niveles de formación de la Universidad; y la incorporación efectiva de las TIC a todos los procesos institucionales. ";
+ 			cursoContLimit=9;
+ 			grupoContLimit=735;
+ 			estudiantesContLimit=714;
+ 			break;
+ 			case 18: //2011
+ 			infoTitle.innerHTML = "LA POLÍTICA Y EL PLAN ESTRATÉGICO";
+ 			infoText.innerHTML = "En el marco de este plan, se establece la Política General sobre el uso de tecnologías de la información y de la comunicación (TIC) con propósitos académicos, para dar lineamientos frente a su incorporación en todos los procesos educativos.  Además, se conforma un colectivo integrado por representantes de todas las instancias académicas y administrativas, especializados en tecnologías con el fin de construir un Plan Estratégico de Incorporación de TIC. ";
+ 			break;
+ 			case 19: //2011
+ 			infoTitle.innerHTML = "CERTIFICACIÓN DE CALIDAD";
+ 			infoText.innerHTML = "Por otro lado, en este mismo año, inicia la segunda cohorte de la Especialización en Gestión Ambiental y se gradúan los primeros estudiantes de la misma.<br> En su gestión administrativa, la dependencia obtiene la Certificación de Calidad ISO 9001.";
+ 			break;
+ 			case 20: //2012
+ 			infoTitle.innerHTML = "LINEAS DE ACCIÓN";
+ 			infoText.innerHTML = "Se formula el Plan Estratégico de Incorporación Académica de TIC. Derivado de este ejercicio, se establecen dos líneas de acción: la definición del sentido de las TIC en el proceso formativo en el marco del Proyecto Educativo Institucional y la ruta de formación docente para el Uso de TIC con propósitos educativos. ";
+ 			cursoContLimit=10;
+ 			grupoContLimit=1045;
+ 			estudiantesContLimit=987;
+ 			break;
+ 			case 21: //2012
+ 			infoTitle.innerHTML = "EL CIT: RESULTADO DE LA REESTRUCTURACIÓN";
+ 			infoText.innerHTML = "Paralelamente y acorde con el Plan Estratégico 2015, la Universidad decide reestructurar la dependencia, para responder de manera integral a los procesos institucionales mediados por TIC, a través de la Resolución de Rectoría No. 6653, con la que se crea el Centro de Innovación TIC.<br>Adicionalmente, empieza la tercera cohorte de la Especialización en Gestión Ambiental y es ratificada la Certificación de Calidad ISO 9001.";
+ 			break;
+ 			case 22: //2013
+ 			infoTitle.innerHTML = "ESTRUCTURA DEL CIT";
+ 			infoText.innerHTML = "Inicia la operación del Centro de Innovación TIC (CIT), con tres unidades de trabajo:<br> •	Investigación e Innovación, en la cual, a través de la articulación con los grupos de investigación de la Universidad, se analizan, aplican y diseñan escenarios de innovación educativa, comunicativa y tecnológica.<br> •		Formación y Capacitación, encargada de promover la apropiación significativa de TIC por parte de la comunidad académica; y de planificar, diseñar e implementar estrategias metodológicas y didácticas orientadas al aprendizaje significativo mediados por TIC en sus modalidades E-learning (cursos virtuales) y B-learning (cursos presenciales con Ampliación del entorno de aprendizaje).<br> •		Desarrollo y Producción de Contenidos, que diseña, desarrolla e implementa ambientes y recursos electrónicos de aprendizaje.";
+ 			cursoContLimit=9;
+ 			grupoContLimit=1045;
+ 			estudiantesContLimit=1076;
+ 			break;
+ 			case 23: //2013
+ 			infoTitle.innerHTML = "EL CIT Y LA AGENDA INSTITUCIONAL";
+ 			infoText.innerHTML = "El CIT inicia con la comunidad académica un trabajo de sensibilización para incorporar, acorde con el PEI, las TIC en los procesos educativos. Del trabajo articulado en cada dependencia, la orientación de la Vicerrectoría Académica y el apoyo del CIT, se establece la agenda de trabajo para el proyecto de b-learning institucional a desarrollarse en el quinquenio 2014 – 2019.";
+ 			
+ 			break;
+
+ 		}
+
+	}
+
+	function defineYear(numItem){
+	
+ 		switch(numItem){
+ 			case 1:
+ 			year=1993;
+ 			blueVarPer=2;
+ 			break;
+ 			case 2:
+ 			year=1995;
+ 			blueVarPer=9;
+ 			break;
+ 			case 3:
+ 			year=1995;
+ 			blueVarPer=11.5;
+ 			break;
+ 			case 4:
+ 			year=1995;
+ 			blueVarPer=13.5;
+ 			break;
+ 			case 5:
+ 			year=1998;
+ 			blueVarPer=16;
+ 			break;
+ 			case 6:
+ 			year=2000;
+ 			blueVarPer=23;
+ 			break;
+ 			case 7:
+ 			year=2001;
+ 			blueVarPer=30;
+ 			break;
+ 			case 8:
+ 			blueVarPer=37;
+ 			year=2003;
+ 			break;
+ 			case 9:
+ 			year=2004;
+ 			blueVarPer=44;
+ 			break;
+ 			case 10:
+ 			year=2004;
+ 			blueVarPer=46.5;
+ 			break;
+ 			case 11:
+ 			year=2005;
+ 			blueVarPer=51;
+ 			break;
+ 			case 12:
+ 			year=2006;
+ 			blueVarPer=58;
+ 			break;
+ 			case 13:
+ 			year=2007;
+ 			blueVarPer=65;
+ 			break;
+ 			case 14:
+ 			year=2008;
+ 			blueVarPer=72;
+ 			break;
+ 			case 15:
+ 			year=2008;
+ 			blueVarPer=75.5;
+ 			break;
+ 			case 16:
+ 			year=2010;
+ 			blueVarPer=79;
+ 			break;
+ 			case 17:
+ 			year=2011;
+ 			blueVarPer=86;
+ 			break;
+ 			case 18:
+ 			year=2011;
+ 			blueVarPer=88.5;
+ 			break;
+ 			case 19:
+ 			year=2011;
+ 			blueVarPer=90.5;
+ 			break;
+ 			case 20:
+ 			year=2012;
+ 			blueVarPer=93;
+ 			break;
+ 			case 21:
+ 			year=2012;
+ 			blueVarPer=96.5;
+ 			break;
+ 			case 22:
+ 			year=2013;
+ 			blueVarPer=100;
+ 			break;
+ 			case 23:
+ 			year=2013;
+ 			blueVarPer=100;
+ 			break;
+
+ 		}
+	}
+</script>
+
+<div style="position:absolute; top:150px; left:190px; z-index:12; display:none;" onclick="next()">BUBBLES!</div>
+</div>
+</body>
+<script src="audioLive.js"></script>
+<script src="Bubble.js"></script>
+<script src="InfoBubble.js"></script>
+</html>

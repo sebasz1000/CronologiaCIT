@@ -1,0 +1,849 @@
+
+
+body, html{
+	width: 100%;
+	height: 100%;
+
+	background: #e5e5e5;
+	margin: 0;
+	color: #2e2e2d;
+	
+}
+
+body{
+	margin: 0;
+	position: absolute;
+	top: -30px;
+}
+#wrapper{
+	position: absolute;
+	height: 100%;
+	width: 100%;
+background: #e5e5e5; /* Old browsers */
+background: -moz-linear-gradient(top, #f7f7f7 0%, #e5e5e5 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f7f7f7), color-stop(100%,#e5e5e5)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #f7f7f7 0%,#e5e5e5 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #f7f7f7 0%,#e5e5e5 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #f7f7f7 0%,#e5e5e5 100%); /* IE10+ */
+background: linear-gradient(to bottom, #f7f7f7 0%,#e5e5e5 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */
+	
+	color: #2e2e2d;
+}
+#pixels{
+	background: url('pixel.png') transparent repeat fixed;
+	width: 100%;
+	height: 103%;
+	opacity: 0.2;
+	position: absolute;
+	top:2px;
+	left:0;
+}
+
+@font-face
+{
+font-family: Napoleodoni;
+src: url('Napoleodoni.ttf'),
+     url('Napoleodoni.eot'); /* IE9 */
+}
+
+@font-face
+{
+font-family: babel;
+src: url('BabelSans.ttf'),
+     url('BabelSans.ttf'); /* IE9 */
+}
+
+
+@font-face
+{
+font-family: Bebas;
+src: url('BebasNeue.TTF'),
+   
+}
+
+@font-face
+{
+font-family: contl;
+src: url('contl.ttf');
+   
+}
+
+@font-face
+{
+font-family: contlbold;
+src: url('contm.ttf');
+   
+}
+@font-face
+{
+font-family: tipois;
+src: url('Tipois-Regular.otf');
+src: url('tipois-regular-webfont.eot');
+    src: url('tipois-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('tipois-regular-webfont.woff') format('woff'),
+         url('tipois-regular-webfont.ttf') format('truetype'),
+         url('tipois-regular-webfont.svg#tipoisregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+   
+}
+
+@font-face
+{
+font-family: Agency;
+src: url('AGENCYR.TTF');
+   
+}
+
+@keyframes fadeInAnimation
+{
+from {opacity: 0;}
+to {opacity: 100;}
+}
+
+@-moz-keyframes fadeInAnimation {
+from {opacity: 0;}
+to {opacity: 100;}
+}
+
+@keyframes fadeOutAnimation
+{
+from {opacity: 100;}
+to {opacity: 0;}
+}
+
+@-moz-keyframes fadeOutAnimation {
+from {opacity: 100;}
+to {opacity: 0;}
+}
+.fadeIn{
+animation: fadeInAnimation 0.5s ease 2s 1 ;
+-webkit-animation: fadeInAnimation 0.5s ease 2s 1 ;
+-moz-animation: fadeInAnimation 0.5s ease 2s 1 ;
+}
+
+.fadeOut{
+animation: fadeOutAnimation 0.5s ease 0.2s 1 ;
+-webkit-animation: fadeOutAnimation 0.5s ease 0.2s 1 ;
+-moz-animation: fadeOutAnimation 0.5s ease 0.2s 1 ;
+}
+
+#textContainer{
+	opacity: 100;
+	width: 50%;
+	margin: 0 auto;
+	min-width: 1064px;
+}
+span.bluecolor{
+	color: #00c1e8;
+}
+
+/*************************** INTRO!*********************/
+
+#introContainer{
+	
+	width: 840px;
+	height: auto;
+	/*min-height: 88%;*/
+	margin: 10% auto;
+}
+.introCont{
+	width: 100%;
+	height: 146px;
+	position: relative;
+
+}
+
+@keyframes errorAnim
+{
+from {width: 0; height: 0; margin-top: 0%; margin-bottom: 0%; opacity:0; }
+to {width: 600px; height: 250px; margin-top: 15%; margin-bottom: 20%; opacity:100; }
+}
+
+@-webkit-keyframes errorAnim /* Safari and Chrome */
+{
+from {width: 0; height: 0; margin-top: -0%; margin-bottom: 0%; opacity:0;  }
+to {width: 600px; height: 250px; margin-top: 15%; margin-bottom: 20%; opacity:100; }
+}
+
+@-moz-keyframes errorAnim {
+from {width: 0; height: 0; margin-top: -0%; margin-bottom: 0%; opacity:0;  }
+to {width: 600px; height: 250px; margin-top: 15%; margin-bottom: 20%; opacity:100; }
+}
+
+
+@keyframes errorInAnim
+{
+from {width: 600px; height: 300px; margin-top: 15%; margin-bottom: 20%; opacity:100 }
+to {width: 0; height: 0; margin-top: -0%; margin-bottom: 0%; opacity:0; }
+}
+
+@-webkit-keyframes errorInAnim /* Safari and Chrome */
+{
+from {width: 600px; height: 300px; margin-top: 15%; margin-bottom: 20%; opacity:100;}
+to { width: 0; height: 0; margin-top: -0%; margin-bottom: 0%; opacity:0;}
+}
+
+@-moz-keyframes errorInAnim {
+from {width: 600px; height: 300px; margin-top: 15%; margin-bottom: 20%; opacity:100;}
+to { width: 0; height: 0; margin-top: -0%; margin-bottom: 0%; opacity:0;}
+}
+
+
+#errorBox{
+
+	width: 0px;
+	height: 0px;
+	background-color: #2e2e2d;
+	margin: 0 auto;
+	
+	opacity: 0;
+
+}
+#errorBox p {
+	font-family: Helvetica,Arial;
+	font-size: 14px;
+	color: #C9C9C9;
+	width: 452px;
+	text-align: center;
+	margin: 29px auto;
+	letter-spacing: 0.3px;
+	line-height: 19px;
+	
+}
+
+#botonContinuar{
+	font-size: 16px;
+	font-family: contl;
+	width: 203px;
+	height: 48px;
+	background-color: #1f1f1f;
+	box-shadow:1px 1px 1px #080808;
+	color: #E2E2E2;
+	margin: 0 auto;
+	position: relative;
+}
+
+#botonContinuar:hover{
+	cursor:pointer;
+	background-color: #494949;
+	color: #fff;
+	
+}
+.errorActive{
+	animation: errorAnim 0.8s ease 0.3s 1 ;
+	-webkit-animation: errorAnim 0.8s ease 0.3s 1 ;
+	-moz-animation: errorAnim 0.8s ease 0.3s 1 ;
+	-webkit-animation-fill-mode: forwards; 
+	-moz-animation-fill-mode: forwards; 
+	animation-fill-mode: forwards; 
+	opacity: 100;
+}
+
+.errorInactive{
+	animation: errorInAnim 0.8s ease 0.3s 1 ;
+	-webkit-animation: errorInAnim 0.8s ease 0.3s 1 ;
+	-moz-animation: errorInAnim 0.8s ease 0.3s 1 ;
+	-webkit-animation-fill-mode: forwards;
+	-moz-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
+	opacity: 0; 
+}
+@-moz-keyframes indicadorAnim {
+from {top: 1%;}
+to {top: 3%;}
+}
+
+@keyframes indicadorAnim
+{
+from {top: 1%;}
+to {top: 3%;}
+}
+
+@-webkit-keyframes indicadorAnim /* Safari and Chrome */
+{
+from {top: 1%;}
+to {top: 3%;}
+}
+
+#indicador{
+	animation: indicadorAnim 0.5s ease 3s infinite alternate;
+	-webkit-animation: indicadorAnim 0.5s ease 3s infinite alternate;
+	-moz-animation: indicadorAnim 0.5s ease 3s infinite alternate;
+	
+	position: absolute;
+	top:2%;
+	left: 353px;
+	width: 60px;
+	height: 93px;
+	background-image: url('../img/indicador.png');
+}
+
+
+.introCont p{
+	font-family: Helvetica,Arial;
+	color: #413F3F;
+	font-size: 14px;
+	
+	text-align: justify;
+	letter-spacing: 0.1px;
+	line-height: 19px;
+
+}
+@keyframes sepAnim
+{
+from {width: 0%;}
+to {width: 50%;}
+}
+
+@-webkit-keyframes sepAnim /* Safari and Chrome */
+{
+from {width: 0%;}
+to {width: 50%;}
+}
+
+@-moz-keyframes sepAnim {
+from {width: 0%;}
+to {width: 50%;}
+}
+.sep{
+	animation: sepAnim 1s ease 1s 1;
+	-webkit-animation: sepAnim 1s ease 1s 1;
+	-moz-animation: sepAnim 1s ease 1s 1;
+	-webkit-animation-fill-mode: forwards; 
+	-moz-animation-fill-mode: forwards; 
+	animation-fill-mode: forwards; 
+	width: 0%;
+	height: 1px;
+	background-color: #bfbfbf;
+}
+.introCont h2{
+	animation: titlefadein 1s ease 2s 1 ;
+-webkit-animation: titlefadein 1s ease 2s 1 ;
+-moz-animation: titlefadein 1s ease 2s 1 ;
+-webkit-animation-fill-mode: forwards; 
+-moz-animation-fill-mode: forwards; 
+animation-fill-mode: forwards; 
+opacity: 0;
+}
+h1#inititle{
+animation: titlefadein 1s ease 2s 1 ;
+-webkit-animation: titlefadein 1s ease 2s 1 ;
+-moz-animation: titlefadein 1s ease 2s 1 ;
+-webkit-animation-fill-mode: forwards; 
+-moz-animation-fill-mode: forwards; 
+animation-fill-mode: forwards; 
+	font-family: contlbold;
+	font-size: 72px;
+	text-align: center;
+	margin: 20px;
+	clear: both;
+	opacity: 0;
+}
+
+
+@keyframes titlefadein
+{
+0%   {opacity: 0;}
+100% {opacity: 100;}
+}
+
+@-webkit-keyframes titlefadein /* Safari and Chrome */
+{
+0%   {opacity: 0;}
+100% {opacity: 100;}
+}
+
+@-moz-keyframes titlefadein {
+0%   {opacity: 0;}
+100% {opacity: 100;}
+}
+
+
+@keyframes moduloAni
+{
+0%   {top: -180%;}
+100% {top: 75%;}
+}
+
+@-webkit-keyframes moduloAni /* Safari and Chrome */
+{
+0%   {top: -180%;}
+100% {top: 75%;}
+}
+
+@-moz-keyframes moduloAni {
+0%   {top: -180%;}
+100% {top: 75%;}
+}
+
+#modulo{
+	animation: moduloAni 1s ease 2s 1;
+/* Safari and Chrome: */
+-webkit-animation: moduloAni 1s ease 2s 1;
+-moz-animation: moduloAni 1s ease 2s 1;
+-webkit-animation-fill-mode: forwards; 
+-moz-animation-fill-mode: forwards; 
+	position: absolute;
+	top: -180%;
+	left: 60%;
+	width: 155px;
+	height: 62px;
+	
+	background-image: url('../img/modulo.png');
+}
+@keyframes pfadein
+{
+0%   {opacity: 0;}
+100% {opacity: 100;}
+}
+
+@-webkit-keyframes pfadein /* Safari and Chrome */
+{
+0%   {opacity: 0;}
+100% {opacity: 100;}
+}
+
+@-moz-keyframes pfadein {
+0%   {opacity: 0;}
+100% {opacity: 100;}
+}
+
+.introCont p{
+animation: pfadein 1s ease 3s 1 ;
+/* Safari and Chrome: */
+-webkit-animation: pfadein 1s ease 3s 1 ;
+-moz-animation: pfadein 1s ease 3s 1 ;
+-webkit-animation-fill-mode: forwards;
+-moz-animation-fill-mode: forwards;  
+animation-fill-mode: forwards; 
+opacity: 0;
+margin-top: 50px;
+}
+
+@keyframes logosIniAni
+{
+0%   {opacity: 0;}
+100% {opacity: 100;}
+}
+
+@-webkit-keyframes logosIniAni /* Safari and Chrome */
+{
+0%   {opacity: 0;}
+100% {opacity: 100;}
+}
+
+@-moz-keyframes logosIniAni {
+0%   {opacity: 0;}
+100% {opacity: 100;}
+}
+
+
+#logosIniCont{
+animation: logosIniAni 1s ease 3.5s 1 ;
+/* Safari and Chrome: */
+-webkit-animation: logosIniAni 1s ease 3.5s 1 ;
+-moz-animation: logosIniAni 1s ease 3.5s 1 ;
+-webkit-animation-fill-mode: forwards;
+-moz-animation-fill-mode: forwards;
+animation-fill-mode: forwards;  
+opacity: 0;
+}
+@keyframes starAnim
+{
+from {opacity: 0;}
+to {opacity: 100;}
+}
+
+@-webkit-keyframes starAnim /* Safari and Chrome */
+{
+from {opacity: 0;}
+to {opacity: 100;}
+}
+
+@-moz-keyframes starAnim {
+from {opacity: 0;}
+to {opacity: 100;}
+}
+
+
+#startBar{
+	animation: starAnim 1s ease 5s infinite alternate;
+	-webkit-animation: starAnim 1s ease 5s infinite alternate;
+	-moz-animation: starAnim 1s ease 5s infinite alternate;
+	-webkit-animation-play-state:running;
+	-moz-animation-play-state:running;
+	animation-play-state:running;
+	width: 100%;
+	height: 80px;
+	background-color: #2e2e2d;
+	position: absolute;
+	bottom: 0%;
+	opacity: 0;
+	}
+
+#startBar:hover{
+	cursor: pointer;
+	opacity: 100;
+	background-color: #5b5b5b;
+	-webkit-animation-play-state:paused;
+	-moz-animation-play-state:paused;
+	animation-play-state:paused;
+
+}
+	
+#startBar h1{
+
+	font-family: contl !important;
+	color:#fff;
+	margin: 10px auto;
+	font-size: 20px;
+	text-align: center;
+	padding-top:15px;
+	opacity: 100;
+	
+}
+
+
+
+#logoCEV{
+	width: 103px;
+	height: 74px;
+	background-image: url('../img/logoCEV.png');
+	float: left;
+	margin: 10px 12px;
+}
+#logoSEV{
+	width: 120px;
+	height: 87px;
+	background-image: url('../img/logoSEV.png');
+	float: left;
+	margin: 10px 12px;
+}
+#logoCIT{
+	width: 200px;
+	height: 55px;
+	background-image: url('../img/logoCit.png');
+	float: left;
+	margin: 26px 12px;
+}
+#logoUAO{
+	width: 80px;
+	height: 87px;
+	background-image: url('../img/logoUAO.png');
+	float: left;
+	margin: 10px 12px;
+}
+
+
+
+/*************************** PANEL E INFO!*********************/
+
+#panelContainer{
+position: absolute;
+	width: 99%;
+	height: 21%;
+	min-width: 1212px;
+	/*bottom: 0;*/
+	margin: 0 auto;
+	padding-top: 20px;
+	display:none;
+}
+
+#infoContainer{
+position: absolute;
+width: 99%;
+min-height: 78.8%;
+/*border: 1px solid #000;*/
+margin: 0 auto;
+pointer-events:none;
+display: none;
+z-index: 0;
+
+}
+
+h1#infoTitle{
+
+	/*width: 550px;*/
+	border-bottom: 1px solid #01a7db;
+	border-top: 1px solid #01a7db;
+	font-size: 40px;
+	font-family: contl;
+	margin: 0 auto;
+	padding: 14px 0;
+	margin-top: 6%;
+	color: #6F6F6F;
+	text-align: center;
+	z-index: 5;
+}
+
+p#infoText{
+
+	width: 850px;
+	min-width: 850px;
+	/*border: 1px solid #000;*/
+	font-size: 18px;
+	font-family: Helvetica,Arial;
+	margin: 0 auto;
+	margin-top: 35px;
+	color:#1B1B1B;
+	text-align: justify;
+	letter-spacing: 0.1px;
+	line-height: 20.5px;
+	z-index: 5;
+}
+
+.infoBubble{
+
+	position: absolute;
+	/*border: 1px solid #000;*/
+	border-radius: 150px;
+	background-image: url(../bubbleImg.png);
+	background-size: 100%;
+}
+.pictures{
+	border-radius: 200px;
+	position: absolute;
+}
+.infoBubble h1{
+	position: relative;
+font-family: tipois;
+color: #01a7db;
+display: inline-block;
+margin-right: 5px;
+margin-left: 4px;
+/*border: 1px solid #000;*/
+
+}
+.infoBubble h2{
+	position: relative;
+font-family: Helvetica;
+font-size: 10px;
+color: #01a7db;
+/*border: 1px solid #000;*/
+clear: both;
+width: 90px;
+height: 30px;
+margin: 0 auto;
+margin-top: 5px;
+text-align: center;
+font-weight: bold;
+}
+#yearTextH1{
+	font-size: 52px;
+margin: 55px auto;
+width: auto;
+height: 50px;
+
+text-align: center;
+}
+
+.g{
+	float: left;
+	width: 120px;
+	margin-top: 8px;
+}
+.iconText{
+	position: relative;
+font-family: Helvetica !important;
+color: #006276;
+font-size: 28px;
+margin: 0;
+margin-top: 25px;
+width: 50px;
+height: 25px;
+text-align: left;
+
+display: inline-block;
+}
+.icon#cursoIcon{
+	background-image: url(../img/cursosIcon.png);
+}
+.icon#grupoIcon{
+	background-image: url(../img/gruposIcon.png);
+}
+.icon#estudianteIcon{
+	background-image: url(../img/estudiantesIcon.png);
+}
+.icon{
+	
+	width: 45px;
+	height: 45px;
+	margin-right: 3px;
+	margin-top: 20px;
+	display: inline-block;
+}
+canvas{
+	position: absolute;	
+	top: 0;
+	left: 0;
+	z-index: -1;
+
+	/*border: solid #000 3px;*/
+
+}
+.bubble {
+  /* width:60px; 
+   margin:0 auto;*/
+   box-shadow:inset 30px 30px 75px rgba(0,0,0,.1), /* this gives us our subtle light gray background gradient */
+              inset 0px 0px 15px rgba(0,0,0,.5), /* this gives us the darker gray border around the whole bubble */
+              inset 0px 0px 55px rgba(255,255,255,.5), /* this gives us the more subtle white gradient all around the edge of the bubble */
+              inset 3px 3px 5px rgba(0,0,0,.5), /* this gives us the slightly darker top left edge */
+              0 0 50px rgba(255,255,255,.75); /* this puts a white glow all around the outside of the bubble to better contrast the edge */
+   border-radius:200px; /* making our border-radius half the width/height ensures a perfectly round circle */
+   background:rgba(255,255,255,.4); /* makes our bubble slightly lighter in color than the background */
+   position:absolute; /* allows us to absolutely position the pseudo elements within the bubble */
+
+}
+
+.bubble:before { /* adds the white highlight on the top left of the bubble */
+   content:"";
+   display:block;
+   position:absolute;
+   width:50%;
+   height:50%;
+   top:10%;
+   left:10%;
+   border-radius: 150px 50px;
+   box-shadow:inset 10px 10px 50px rgba(255,255,255,.6);
+}
+
+.bubble:after { /* adds the darker lowlight on the bottom of the bubble */
+   content:"";
+   display:block;
+   position:absolute;
+   width:85%;
+   height:85%;
+   border-radius:170px;
+   left:7%;
+   top:7%;
+   box-shadow:inset 0px -10px 10px rgba(0,0,0,.05);
+}
+
+/* para el timeLine*/
+
+.container{
+
+	width:22%;
+	height: 100%;
+	/*border: 1px solid #000;*/
+	float: left;
+}
+#menuContainer{
+	width: 532px;
+	height: 104px;
+	/*border: 2px #000 solid;*/
+	margin: 0px auto;
+	margin-top: 20px;
+}
+#timeLineContainer
+{
+position: relative;
+width:506px;
+height:18px;
+overflow: hidden;
+margin: 0 auto;
+
+
+}
+
+#timeLine
+{
+
+width:506px;
+height:18px;
+overflow: hidden;
+background-image: url(../img/timeLineImg.png);
+position: absolute;
+top:0;
+left: 0;
+
+
+}
+
+.timeLinePoint{
+	width: 13px;
+	height: 13px;
+	
+	float: left;
+	margin-left: 4.4%;
+	border-radius: 10px;
+
+	
+	margin-top: 5px;
+}
+
+.timeLinePoint:hover{
+	
+	box-shadow: #09d9f8 0px 0px 5px inset ;
+	cursor: pointer;
+
+}
+#blueBar{
+	background-color: #0cdefd;
+	width: 2%;
+	height: 18px;
+	position: absolute;
+	top:0;
+	left: 1px;
+
+}
+
+.years{
+	width: 101%;
+	height: 13px;
+	/*border: 1px #000 solid;*/
+	font-family: Arial;
+	font-size: 13px;
+	color:#1f1f1f;
+	padding: 0;
+	font-family: Napoleodoni_bold;
+	text-shadow: 1px 1px #fff; 
+
+}
+.years li.active{
+	font-size: 18px;
+	color:#0a6f8d;
+}
+.years li:hover{
+	cursor:pointer;
+	color:#7f7f7f;
+	text-shadow: 1px 1px #ddf3f6;
+
+}
+
+.years#yearsSup li{
+	display: inline-block;
+	margin-left: 35px;
+	
+	width: 34px;
+}
+.years#yearsInf li{
+	display: inline-block;
+	margin-right: 33px;
+	
+	width: 35px;
+}
+
+.separador{
+	width: 100%;
+	height: 1px;
+	margin: 0 auto;
+
+	background-color: #a2a2a2;
+	box-shadow: 1px 1px #fff;
+}
+
+
+footer{
+	font-family: Helvetica;
+	width: 702px;
+	/*border:1px solid #000;*/
+	text-shadow: #fff 1px 1px;
+	margin:0 auto;
+	font-size: 10px;
+	margin-top: 12px;
+	text-align: center;
+	color: #777777;
+}
